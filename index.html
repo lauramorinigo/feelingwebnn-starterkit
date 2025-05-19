@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speech + WebNN Sentiment</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    #start-btn {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+    }
+    #transcript, #sentiment {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎙️ Web Speech + WebNN Sentiment</h1>
+  <button id="start-btn">Start Listening</button>
+  <p id="transcript"></p>
+  <p id="sentiment"></p>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
