@@ -1,8 +1,8 @@
-# 🎤 Talk to Me: Voice + Sentiment + AI = Magic ✨
+# 🎤 Feeling your feelings - Web NN and Web Speech API ✨
 
 Hey friend! 👋 In this quick codelab, we’re building a tiny web app that listens to your voice, checks the *vibes* (aka your mood), and shows a cute emoji reaction using real-time AI in the browser. Yep. Just with JavaScript.
 
-No backend, no frameworks, no stress. Just pure web magic. Ready? Let’s go! 🏁
+No backend, no frameworks, no stress. Just pure web magic. 
 
 ---
 
@@ -11,13 +11,13 @@ No backend, no frameworks, no stress. Just pure web magic. Ready? Let’s go! �
 - How to use the **Web Speech API** to turn voice into text  
 - How to do a baby version of **sentiment analysis** in JavaScript  
 - How to run AI inference in the browser using **WebNN** (with a polyfill!)  
-- How to be ✨ that dev ✨ in just 10 minutes  
+
 
 ---
 
 ## 💻 What You Need
 
-- Chrome or Edge browser  
+- A browser that enables testing of webnn (Like Edge or Chrome Canary)
 - A working microphone 🎙️  
 - Basic JavaScript knowledge (if you know `addEventListener`, you’re good)  
 - 10 minutes (yes, that’s all!)
@@ -27,12 +27,11 @@ No backend, no frameworks, no stress. Just pure web magic. Ready? Let’s go! �
 ## 🗂️ Project Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/voice-sentiment-webnn.git
+git clone https://github.com/lauramorinigo/feelingswebnn-starterkit
 cd voice-sentiment-webnn
 ```
 
-Or just drag `index.html` into your browser like it’s 2008 😎
-
+Run index.html into a live server
 ---
 
 ## 1️⃣ Let’s Talk — Add Speech Recognition
@@ -101,26 +100,26 @@ async function getSentiment(text) {
 
 > Skip this if you're short on time — the basic version works without it!
 
-If you’re feeling spicy 🌶️, you can plug in WebNN (with polyfill) to run real ML models in the browser.
+If you’re feeling to go further, you can plug in WebNN (with polyfill) to run real ML models in the browser, let's connect it the function 
+infereSentiment from webnn.js
 
 ```js
-// This is a placeholder — full WebNN code goes here if using the polyfill
-// You can load a model using fetch, convert inputs to tensors, and run inference
-```
+recognition.onresult = async (event) => {
+  const transcript = event.results[0][0].transcript;
+  transcriptEl.textContent = `You said: "${transcript}"`;
+
+  const sentimentScore = await analyzeSentiment(transcript);
+  const nnResult = await inferSentimentWebNN(sentimentScore);
+
+  let emoji = '😐';
+  if (nnResult > 0.5) emoji = '😊';
+  if (nnResult < -0.5) emoji = '😠';
+
+  sentimentEl.textContent = `Sentiment: ${emoji} (${nnResult.toFixed(2)})`;
+};
 
 ---
 
-## 5️⃣ Wire It Up — HTML IDs
-
-Make sure your HTML has:
-
-```html
-<button id="startBtn">🎙️ Talk</button>
-<p id="transcript"></p>
-<p id="sentiment"></p>
-```
-
----
 
 ## ✅ You Did It!
 
@@ -136,7 +135,7 @@ You just built a live voice → sentiment AI pipeline in JavaScript. In 10 minut
 
 ## 💡 Bonus Ideas
 
-- Replace the `getSentiment` with a real ML model  
+- Replace the `getSentiment` with a real ML model  (this is my personal next step, stay tuned)
 - Animate emojis or trigger GIFs  
 - Add voice feedback using `speechSynthesis`  
 - Translate text before analyzing  
@@ -146,5 +145,4 @@ You just built a live voice → sentiment AI pipeline in JavaScript. In 10 minut
 
 ## 🧠 Credits
 
-Built with love by [Your Name]  
-Powered by Web Speech API + fake but fabulous JavaScript AI 💅
+Built with love by Laura Morinigo
