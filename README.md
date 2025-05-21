@@ -3,6 +3,7 @@
 Hey friend! 👋 In this quick codelab, we’re building a tiny web app that listens to your voice, checks the *vibes* (aka your mood), and shows a cute emoji reaction using real-time AI in the browser. Yep. Just with JavaScript.
 
 No backend, no frameworks, no stress. Just pure web magic. 
+<img width="513" alt="Screenshot 2025-05-18 at 15 49 19" src="https://github.com/user-attachments/assets/bcad9160-2511-4827-8016-5758ad9868a3" />
 
 ---
 
@@ -117,7 +118,7 @@ recognition.onresult = async (event) => {
 
   sentimentEl.textContent = `Sentiment: ${emoji} (${nnResult.toFixed(2)})`;
 };
-
+```
 ---
 
 
@@ -147,5 +148,5 @@ You just built a live voice → sentiment AI pipeline in JavaScript. In 10 minut
 
 Built with love by Laura Morinigo
 
-## You can see the final version of the project here:
+-- You can see the final version of the project here:
 [Final github repo](https://github.com/lauramorinigo/feelingwebnn)
