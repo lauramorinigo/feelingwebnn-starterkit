@@ -28,7 +28,7 @@ No backend, no frameworks, no stress. Just pure web magic.
 
 ```bash
 git clone https://github.com/lauramorinigo/feelingswebnn-starterkit
-cd voice-sentiment-webnn
+cd feelingswebnn-starterkit
 ```
 
 Run index.html into a live server
@@ -146,3 +146,6 @@ You just built a live voice → sentiment AI pipeline in JavaScript. In 10 minut
 ## 🧠 Credits
 
 Built with love by Laura Morinigo
+
+## You can see the final version of the project here:
+[Final github repo](https://github.com/lauramorinigo/feelingwebnn)
